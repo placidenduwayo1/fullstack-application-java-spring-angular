@@ -1,0 +1,13 @@
+<div class="container mt-2">
+  <button class="btn btn-outline-info" (click)="onPrintEmployees()">
+    List all employees
+  </button>
+  &nbsp;
+  <button class="btn btn-outline-info" (click)="onCreateEmployee()">
+    create employee
+  </button>
+</div>
+
+<app-sub-compo-employee-printer
+  [employeesList]="employeesList"
+></app-sub-compo-employee-printer>

@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: clean-archi-bs-ms-project
+  cloud:
+    config:
+#      uri: http://microservices-config-service:8280
+      uri: http://localhost:8280

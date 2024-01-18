@@ -1,0 +1,10 @@
+<div class="container">
+  <button class="btn btn-outline-info" (click)="onPrintCompanies()">
+    print companies
+  </button>
+  &nbsp;
+  <button class="btn btn-outline-info" (click)="onCreateCompany()">
+    create a company
+  </button>
+</div>
+<app-sub-compo-company-printer [companies]="companies"></app-sub-compo-company-printer>

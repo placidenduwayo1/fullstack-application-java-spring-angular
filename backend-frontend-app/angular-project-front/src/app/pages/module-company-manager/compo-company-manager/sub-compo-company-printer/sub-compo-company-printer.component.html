@@ -1,0 +1,58 @@
+<div class="container mt-3">
+  <p-table
+  [value]="companies"
+  responsiveLayout="scroll"
+  styleClass="p-datatable-striped"
+  *ngIf="companies"
+  [paginator]="true"
+  [rows]="9"
+  [showCurrentPageReport]="true"
+  currentPageReportTemplate="{first} - {last} of {totalRecords} entries"
+  [rowsPerPageOptions]="[9, 10, 11]"
+  class="p-3"
+  >
+  <ng-template pTemplate="header">
+    <tr>
+      <th>ID</th><th>name</th><th>type</th><th>connected date</th> <th>agency</th>
+      <th></th><th></th><th></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-company>
+    <tr>
+      <td>{{ company.companyID }}</td>
+      <td>{{ company.companyName }}</td>
+      <td>{{ company.companyType }}</td>
+      <td>{{company.connectedDate}} </td>
+      <td> {{company.agency}} </td>
+      <td>
+        <button class="btn">
+          <i
+            class="fa fa-pencil"
+            style="color: mediumturquoise"
+            (click)="onCompanyUpdate(company)"
+          ></i>
+        </button>
+      </td>
+      <td>
+        <button class="btn">
+          <i
+            class="fa fa-trash"
+            style="color: red"
+            (click)="onCompanyDelete(company.companyID)"
+          ></i>
+        </button>
+      </td>
+      <td>
+        <button class="btn">
+          <i
+            class="fa fa-search"
+            style="color: mediumturquoise"
+            (click)="onPrintProjectsRelated(company.companyID)"
+          > projects</i>
+        </button>
+      </td>
+    </tr>
+  </ng-template>
+
+  </p-table>
+

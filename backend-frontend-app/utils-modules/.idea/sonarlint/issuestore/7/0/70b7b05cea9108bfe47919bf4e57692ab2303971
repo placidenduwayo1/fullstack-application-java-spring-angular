@@ -1,0 +1,9 @@
+
+|
+java:S1128"_Remove this unused import 'org.springframework.cloud.client.discovery.ReactiveDiscoveryClient'.(ˆûÙ˜8™œÛâÑ1
+
+java:S1128"nRemove this unused import 'org.springframework.cloud.gateway.discovery.DiscoveryClientRouteDefinitionLocator'.(¦ñ‰´şÿÿÿÿ8šœÛâÑ1
+…
+java:S1128"cRemove this unused import 'org.springframework.cloud.gateway.discovery.DiscoveryLocatorProperties'.(®™ªÿÿÿÿÿ8›œÛâÑ1
+e
+java:S1128"HRemove this unused import 'org.springframework.context.annotation.Bean'.(‚î‰Ş8›œÛâÑ1

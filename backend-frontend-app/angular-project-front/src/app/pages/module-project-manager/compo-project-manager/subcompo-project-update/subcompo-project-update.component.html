@@ -1,0 +1,97 @@
+<div class="container mt-3">
+  <div class="card">
+    <div class="card-header">Project info</div>
+    <div class="card-body">
+
+      <form [formGroup]="projectForm" (ngSubmit)="onSaveProjectForm(); projectForm.reset()">
+        <label for="projectName">project name</label>
+        <input type="text" class="form-control" formControlName="projectName"
+        [ngClass]="{'is-invalid': projectForm.controls['projectName'].touched && projectForm.controls['projectName'].invalid}">
+
+
+        <div class="invalid-feedback">
+          <span *ngIf="projectForm.controls['projectName'].errors?.['required']"
+            >required</span
+          >
+        </div>
+
+        <label for="description"> description</label>
+        <input type="text" class="form-control" formControlName="description"
+        [ngClass]="{'is-invalid': projectForm.controls['description'].touched && projectForm.controls['description'].invalid}">
+
+        <div class="invalid-feedback">
+          <span *ngIf="projectForm.controls['description'].errors?.['required']"
+            >required</span
+          >
+          <span *ngIf="projectForm.controls['description'].errors?.['minlength']"
+          >very short description</span
+        >
+        </div>
+
+        <label for="priority">priority</label>
+        <select class="form-control" formControlName="priority">
+          <option *ngFor="let priority of priorities | keyvalue" [ngValue]="priority.value">
+              {{ priority.value }}
+          </option>
+        </select>
+       <div class="invalid-feedback">
+        <span *ngIf="projectForm.controls['priority'].errors?.['required']">required</span>
+       </div>
+        <label for="projectState">project state</label>
+        <select
+        class="form-control" formControlName="projectState">
+        <option
+          *ngFor="let state of states | keyvalue"
+          [ngValue]="state.value"
+        >
+          {{ state.value }}
+        </option>
+        </select>
+
+        <div class="invalid-feedback">
+          <span *ngIf="projectForm.controls['projectState'].errors?.['required']"
+            >required</span
+          >
+        </div>
+
+        <label for="employeeID"> employee</label>
+        <select formControlName="employeeID" class="form-control">
+          <option
+            *ngFor="let employeeMap of employeesMap | keyvalue" [ngValue]="employeeMap.key"
+          >
+            {{employeeMap.value}}
+          </option>
+        </select>
+        <div class="invalid-feedback">
+          <span *ngIf="projectForm.controls['employeeID'].errors?.['required']"
+            >required</span
+          >
+        </div>
+
+        <label for="companyID"> company</label>
+        <select formControlName="companyID" class="form-control">
+          <option
+            *ngFor="let companyMap of companiesMap | keyvalue" [ngValue]="companyMap.key" disabled
+          >
+            {{companyMap.value}}
+          </option>
+        </select>
+        <div class="invalid-feedback">
+          <span *ngIf="projectForm.controls['projectState'].errors?.['required']"
+            >required</span
+          >
+        </div>
+
+        <div class="text-center mt-2">
+          <button
+            type="submit"
+            class="btn btn-outline-primary"
+          >
+            save
+          </button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>

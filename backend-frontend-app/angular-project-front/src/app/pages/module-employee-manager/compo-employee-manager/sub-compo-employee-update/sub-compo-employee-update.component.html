@@ -1,0 +1,109 @@
+<div class="container mt-2" *ngIf="employeeForm">
+  <div class="card">
+    <div class="card-header">Employee infos</div>
+    <div class="card-body">
+
+      <form
+    [formGroup]="employeeForm"
+    (ngSubmit)="onSaveEmployeeFormData(); employeeForm.reset()"
+  >
+        <label for="firstname">firstname</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="firstname"
+          [ngClass]="{
+            'is-invalid':
+              employeeForm.controls['firstname'].touched &&
+              employeeForm.controls['firstname'].invalid
+          }"
+        />
+
+        <div class="invalid-feedback">
+          <span *ngIf="employeeForm.controls['firstname'].errors?.['required']">
+            firstname is required</span
+          >
+        </div>
+
+        <label for="lastname">lastname</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="lastname"
+          [ngClass]="{
+            'is-invalid':
+              employeeForm.controls['lastname'].touched &&
+              employeeForm.controls['lastname'].invalid
+          }"
+        />
+
+        <div class="invalid-feedback">
+          <span *ngIf="employeeForm.controls['lastname'].errors?.['required']"
+            >lastname is required</span
+          >
+        </div>
+
+        <label for="employeeState">Employee state </label>
+        <select formControlName="employeeState" class="form-control">
+          <option
+            *ngFor="let state of employeeState | keyvalue"
+            [ngValue]="state.value"
+          >
+            {{ state.value }}
+          </option>
+        </select>
+
+        <div class="invalid-feedback">
+          <span
+            *ngIf="employeeForm.controls['employeeState'].errors?.['required']"
+            >state is required</span
+          >
+        </div>
+
+        <label for="employeeType">Employee type </label>
+        <select formControlName="employeeType" class="form-control">
+          <option
+            *ngFor="let type of employeeType | keyvalue"
+            [ngValue]="type.value"
+          >
+            {{ type.value }}
+          </option>
+        </select>
+
+        <div class="invalid-feedback">
+          <span
+            *ngIf="employeeForm.controls['employeeType'].errors?.['required']"
+            >type is required</span
+          >
+        </div>
+
+        <label for="addressID">Address ID for the employee</label>
+        <select class="form-control" formControlName="addressID">
+          <option
+            *ngFor="let addressMap of addressesMap | keyvalue" [ngValue]="addressMap.key"
+          >
+           {{addressMap.value}}
+          </option>
+        </select>
+
+        <div class="invalid-feedback">
+          <span *ngIf="employeeForm.controls['addressID'].errors?.['required']"
+            >address is required</span
+          >
+        </div>
+
+    <div class="text-center mt-2">
+      <button
+        type="submit"
+        class="btn btn-outline-primary"
+        [disabled]="employeeForm.invalid"
+      >
+        save
+      </button>
+    </div>
+  </form>
+
+    </div>
+  </div>
+
+</div>

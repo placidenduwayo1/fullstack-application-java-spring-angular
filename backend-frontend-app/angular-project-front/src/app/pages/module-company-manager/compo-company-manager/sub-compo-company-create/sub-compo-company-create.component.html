@@ -1,0 +1,83 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header">Company infos</div>
+    <div class="card-body">
+      <form
+        #companyForm="ngForm"
+        (ngSubmit)="onCompanyCreate(); companyForm.resetForm()"
+      >
+        <label for="companyName">company name</label>
+        <input
+          type="text"
+          class="form-control"
+          name="companyName"
+          #companyName="ngModel"
+          [(ngModel)]="company.companyName"
+          [ngClass]="{
+            'is-invalid': companyName.touched && companyName.invalid
+          }"
+          required
+          minlength="4"
+          maxlength="20"
+        />
+
+        <div class="invalid-feedback">
+          <span *ngIf="companyName.errors?.['required']">required</span>
+          <span *ngIf="companyName.errors?.['minlength']"
+            >very short company name</span
+          >
+          <span *ngIf="companyName.errors?.['maxlength']"
+            >too long company name</span
+          >
+        </div>
+
+        <label for="companyType">type of company</label>
+        <select
+          class="form-control"
+          required
+          name="companyType"
+          #companyType="ngModel"
+          [(ngModel)]="company.companyType"
+        >
+          <option
+            *ngFor="let type of companyTypes | keyvalue"
+            [ngValue]="type.key"
+          >
+            {{ type.value }}
+          </option>
+        </select>
+
+        <div class="invalid-feedback">
+          <span *ngIf="companyType.errors?.['required']">required</span>
+        </div>
+
+        <label for="agency">agency</label>
+        <input
+          type="text"
+          class="form-control"
+          name="agency"
+          #agency="ngModel"
+          [(ngModel)]="company.agency"
+          [ngClass]="{
+            'is-invalid': agency.touched && agency.invalid
+          }"
+          required
+        />
+
+        <div class="invalid-feedback">
+          <span *ngIf="agency.errors?.['required']"> required</span>
+        </div>
+
+        <div class="text-center mt-2">
+          <button
+            type="submit"
+            class="btn btn-outline-primary"
+            [disabled]="companyForm.invalid"
+          >
+            save
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

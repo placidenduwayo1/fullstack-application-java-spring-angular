@@ -1,0 +1,13 @@
+server:
+  port: 8280
+spring:
+  application:
+    name: microservices-config-service
+  cloud:
+    config:
+      server:
+        git:
+          #          uri: file://${user.home}/cloud-conf #local repository
+          uri: https://github.com/placidenduwayo1/config-files-center.git
+          default-label: main
+          search-paths: for-bootcamp-fullstack-3-CI-CD

@@ -1,0 +1,51 @@
+<div class="container mt-3">
+<p-table
+[value]="addressesList"
+responsiveLayout="scroll"
+styleClass="p-datatable-striped"
+*ngIf="addressesList"
+[paginator]="true"
+[rows]="10"
+[showCurrentPageReport]="true"
+currentPageReportTemplate="{first} - {last} of {totalRecords} entries"
+[rowsPerPageOptions]="[10, 20, 30]"
+class="p-3"
+>
+<ng-template pTemplate="body" let-address>
+  <tr>
+    <td>{{ address.num }}</td>
+    <td>{{ address.street }}</td>
+    <td>{{ address.pb }}</td>
+    <td>{{ address.city }}</td>
+    <td>{{ address.country }}</td>
+    <td>
+      <button class="btn">
+        <i
+          class="fa fa-pencil"
+          style="color: mediumturquoise"
+          (click)="onAddressUpdate(address)"
+        ></i>
+      </button>
+    </td>
+    <td>
+      <button class="btn">
+        <i
+          class="fa fa-trash"
+          style="color: red"
+          (click)="onAddressDelete(address.addressID)"
+        ></i>
+      </button>
+    </td>
+    <td>
+      <button class="btn">
+        <i
+        class="fa fa-search"
+        style="color: mediumturquoise"
+        (click)="onPrintEmployeesLivigOnThisAddress(address.addressID)"
+      > employees </i>
+      </button>
+    </td>
+  </tr>
+</ng-template>
+
+</p-table>

@@ -1,0 +1,10 @@
+<div class="container mt-2">
+  <button class="btn btn-outline-info" (click)="onPrintProjects()">
+    List all projects
+  </button>
+  &nbsp;
+  <button class="btn btn-outline-info" (click)="onCreateProject()">
+    Create a project
+  </button>
+</div>
+<app-sub-compo-project-printer [projects]="projects"></app-sub-compo-project-printer>
