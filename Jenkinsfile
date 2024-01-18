@@ -1,8 +1,8 @@
 pipeline {
     agent any //we tell jenkins to use any available agent
     tools {
-        maven 'Maven'
-        jdk 'Java17'
+        maven 'Maven-3.9.6'
+        jdk 'Java-17'
         nodejs 'Nodejs'
     }
     stages {
