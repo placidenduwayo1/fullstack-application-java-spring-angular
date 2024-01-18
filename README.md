@@ -33,4 +33,5 @@
 - pattern observer RxJS
 
 ### Architecture globale: 
-[architecture](https://drive.google.com/file/d/1cl-0_Iv-YiYb8pXeH6rUK0WdogEmwGNl/view?usp=share_link)
+![global-architecture](https://github.com/placidenduwayo1/fullstack-application-java-spring-angular/assets/124048212/fa02b196-fa4a-450c-8148-8bb4e87edecd)
+
