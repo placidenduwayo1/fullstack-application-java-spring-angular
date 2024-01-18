@@ -36,13 +36,14 @@ pipeline {
             steps{
                 dir('./backend-frontend-app/angular-project-front'){//enter in angular project to run some commands
                     sh 'npm install'
+                    sh 'npm cache verify'
                 }
             }
         }
         stage('Build-frontend'){
             steps{
                 dir('./backend-frontend-app/angular-project-front'){//enter in angular project to run some commands
-                    sh 'ng build'
+                    sh 'npm run ng build'
                 }
             }
         }
