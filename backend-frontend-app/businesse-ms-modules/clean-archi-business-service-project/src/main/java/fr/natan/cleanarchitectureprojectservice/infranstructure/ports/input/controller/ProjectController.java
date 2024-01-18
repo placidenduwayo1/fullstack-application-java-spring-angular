@@ -54,7 +54,6 @@ public class ProjectController {
         updatedProject.setCompany(companyServiceProxy.getCompanyByID(updatedProject.getCompanyID()));
         return updatedProject;
     }
-
     @DeleteMapping(value = "/projects/{projectID}")
     public void deleteProject(@PathVariable(name = "projectID") String projectID) throws ProjectNotFoundException,
             EmployeeIsAssiacetedToProjectException, CompanyIsAssiacetedToProjectException {
@@ -65,7 +64,6 @@ public class ProjectController {
     public EmployeeModel getEmployee(@PathVariable(name = "employeeID") String employeeID) {
         return employeeServiceProxy.getEmployeeByID(employeeID);
     }
-
     @GetMapping(value = "/projects/{projectID}")
     public Project getProject(@PathVariable(name = "projectID") String projectID) throws ProjectNotFoundException {
         Project project = projectInputService.getProjectByID(projectID).orElseThrow(ProjectNotFoundException::new);
@@ -74,7 +72,6 @@ public class ProjectController {
 
         return project;
     }
-
     @GetMapping(value = "/projects/companies/{companyID}")
     public List<Project> getProjectAssignedToCompany(@PathVariable(name = "companyID") String companyID) {
         List<Project> projects = projectInputService.getProjectsAssignedToCompany(companyID);
@@ -85,7 +82,6 @@ public class ProjectController {
 
         return projects;
     }
-
     @GetMapping(value = "/projects/employees/{employeeID}")
     public List<Project> getProjectAssignedToEmployee(@PathVariable(name = "employeeID") String employeeID) {
         List<Project> projects = projectInputService.getProjectsAssignedToEmployee(employeeID);
