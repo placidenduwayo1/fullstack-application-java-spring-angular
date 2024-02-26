@@ -5,6 +5,6 @@
   &nbsp;
   <button class="btn btn-outline-info" (click)="onCreateCompany()">
     create a company
-  </button>
+  </button> {{nbrCompanies}}
 </div>
-<app-sub-compo-company-printer [companies]="companies"></app-sub-compo-company-printer>
+<app-sub-compo-company-printer [companies]="companies" (nbrOfCompaniesEventEmitter)="printNbrCompanies($event)"></app-sub-compo-company-printer>

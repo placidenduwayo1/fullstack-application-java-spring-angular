@@ -5,9 +5,9 @@
   &nbsp;
   <button class="btn btn-outline-info" (click)="onCreateEmployee()">
     create employee
-  </button>
+  </button> {{nbrEmployees}}
 </div>
 
 <app-sub-compo-employee-printer
-  [employeesList]="employeesList"
+  [employeesList]="employeesList" (nbEmployeesEventEmitter)="printNbrEmployees($event)"
 ></app-sub-compo-employee-printer>

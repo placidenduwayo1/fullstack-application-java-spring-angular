@@ -1,4 +1,7 @@
 <div class="container mt-3">
+  
+  <p-button styleClass="p-button-sm"  label="nb companies" *ngIf="companies"
+   (onClick)="printNumberOfCompaniesEventEmitter(companies.length)"/>
   <p-table
   [value]="companies"
   responsiveLayout="scroll"

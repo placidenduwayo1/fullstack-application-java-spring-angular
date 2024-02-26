@@ -1,31 +1,15 @@
-import { Injectable } from "@angular/core";
-import { ActivatedRouteSnapshot, Resolve } from "@angular/router";
-import { Observable } from "rxjs";
+import { inject } from "@angular/core";
+import { ActivatedRouteSnapshot, ResolveFn } from "@angular/router";
 import { Company } from "src/app/shared/models/company/company.model";
 import { CompanyService } from "../../service-REST/companies.service";
 
-@Injectable({providedIn:'root'})
-export class GetAllCompaniesResolve implements Resolve<Array<Company>> {
-
-  constructor(private companyService: CompanyService){}
-  resolve(): Observable<Company[]> {
-    return this.companyService.getAllCompanies();
-  }
+export const GetAllCompaniesResolve: ResolveFn<Array<Company>> = ()=>{
+  return inject(CompanyService).getAllCompanies();
+}
+export const GetCompanyByIDResolve: ResolveFn<Company> = (route: ActivatedRouteSnapshot)=>{
+  return inject(CompanyService).getCompany(route.paramMap.get('companyID'))
 }
 
-@Injectable({providedIn:'root'})
-export class GetCompanyByIDResolve implements Resolve<Company> {
-  constructor(private companyService: CompanyService){}
-  resolve(route: ActivatedRouteSnapshot): Observable<Company>{
-   return this.companyService.getCompany(route.paramMap.get('companyID'));
-  }
-}
-
-@Injectable({providedIn:'root'})
-export class GetProjectsAssignedToCompanyResolve implements Resolve<Array<any>> {
-
-  constructor(private companyService: CompanyService){}
-  resolve(route: ActivatedRouteSnapshot): Observable<any[]> {
-    return this.companyService.getProjectsAssignedToCompany(route.paramMap.get('companyID'));
-  }
+export const GetProjectsAssignedToCompanyResolve: ResolveFn<Array<any>> = (route: ActivatedRouteSnapshot)=>{
+  return inject(CompanyService).getProjectsAssignedToCompany(route.paramMap.get('companyID'));
 }

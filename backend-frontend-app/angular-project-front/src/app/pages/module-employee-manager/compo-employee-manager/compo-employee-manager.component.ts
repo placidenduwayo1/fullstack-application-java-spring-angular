@@ -20,6 +20,11 @@ export class CompoEmployeeManagerComponent implements OnInit {
 
   employeesList!: Array<Employee>;
 
+  nbrEmployees!: number;
+  printNbrEmployees($event: number){
+    this.nbrEmployees = $event;
+  }
+
   onPrintEmployees() {
     this.employeeEventPubliser.publishEmployeeEvent(
       EmployeeEvent.GET_ALL_EMPLOYEES

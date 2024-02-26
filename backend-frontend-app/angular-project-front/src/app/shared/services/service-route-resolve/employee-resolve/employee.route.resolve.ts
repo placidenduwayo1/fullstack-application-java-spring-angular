@@ -1,30 +1,16 @@
-import { Injectable } from "@angular/core";
-import { ActivatedRouteSnapshot, Resolve } from "@angular/router";
-import { Observable } from "rxjs";
+import { inject } from "@angular/core";
+import { ActivatedRouteSnapshot, ResolveFn } from "@angular/router";
 import { Employee } from "src/app/shared/models/employee/employee.model";
 import { EmployeeService } from "../../service-REST/employees.service";
 
-@Injectable({ providedIn: 'root' })
-export class GetAllEmployeesResolve implements Resolve<Array<Employee>> {
-  constructor(private employeeService: EmployeeService) {}
-
-  resolve(): Observable<Employee[]> {
-    return this.employeeService.getAllEmployees();
-  }
+export const GetAllEmployeesResolve: ResolveFn<Array<Employee>> = ()=>{
+  return inject(EmployeeService).getAllEmployees();
 }
 
-@Injectable({providedIn:'root'})
-export class GetEmployeeByIDResolve implements Resolve<Employee> {
-  constructor(private employeeService: EmployeeService){}
-  resolve(route: ActivatedRouteSnapshot): Observable<Employee> {
-    return this.employeeService.getEmployee(route.paramMap.get('employeeID'));
-  }
+export const GetEmployeeByIDResolve: ResolveFn<Employee> = (route: ActivatedRouteSnapshot)=>{
+  return inject(EmployeeService).getEmployee(route.paramMap.get('employeeID'));
 }
-@Injectable({providedIn:'root'})
-export class GetProjectsAssignedToEmployeeResolve implements Resolve<Array<any>>{
-  constructor(private employeeService: EmployeeService){}
-  resolve(route: ActivatedRouteSnapshot):Observable<any[]>{
-    return this.employeeService.getProjectsAssignedToEmployee(route.paramMap.get('employeeID'))
-  }
 
+export const GetProjectsAssignedToEmployeeResolve: ResolveFn<Array<any>> = (route: ActivatedRouteSnapshot)=>{
+  return inject(EmployeeService).getProjectsAssignedToEmployee(route.paramMap.get('employeeID'));
 }

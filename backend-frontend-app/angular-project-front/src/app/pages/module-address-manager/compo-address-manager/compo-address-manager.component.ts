@@ -19,6 +19,12 @@ export class CompoAddressPrinterComponent implements OnInit {
     private router: Router) { }
 
   addressesList!: Array<Address>;
+  nbAddresses!:number;
+
+  printAddresses($event: any){
+    console.log("nbr of addresses ------------------ ", $event);
+    this.nbAddresses = $event;
+  }
 
   ngOnInit(): void {
     this.addressEventPubliser.addressEventObservable.subscribe((addressEvent: AddressEvent)=>{

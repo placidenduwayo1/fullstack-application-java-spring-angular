@@ -17,13 +17,19 @@ export class CompoProjectManagerComponent implements OnInit {
     private projectService: ProjectService,
     private router: Router) { }
 
-    projects!: Array<Project>;
+  projects!: Array<Project>;
+  nbrOfProjects!: number;
+
+  printNumberOfProjects($event: any) {
+   console.log("nombre de projets------------ ", $event);
+   this.nbrOfProjects = $event;
+   }
 
   ngOnInit(): void {
-    this.projectEventPublisher.projectEventObservable.subscribe((projectEvent: ProjectEvent)=>{
-      switch(projectEvent) {
-        case ProjectEvent.GET_ALL_PROJECTS :
-          this.activatedRoute.data.subscribe(data=>{
+    this.projectEventPublisher.projectEventObservable.subscribe((projectEvent: ProjectEvent) => {
+      switch (projectEvent) {
+        case ProjectEvent.GET_ALL_PROJECTS:
+          this.activatedRoute.data.subscribe(data => {
             this.projects = data['getAllProjectsResolve']
             console.log(this.projects.length)
           })
@@ -33,7 +39,7 @@ export class CompoProjectManagerComponent implements OnInit {
           this.router.navigateByUrl('/project-create')
           break;
         case ProjectEvent.REFRESH:
-          this.projectService.getAllProjects().subscribe((data: Array<Project>)=>{
+          this.projectService.getAllProjects().subscribe((data: Array<Project>) => {
             this.projects = data;
             console.log(projectEvent);
           });
@@ -42,10 +48,10 @@ export class CompoProjectManagerComponent implements OnInit {
     })
   }
 
-  onPrintProjects(){
+  onPrintProjects() {
     this.projectEventPublisher.publishProjectEvent(ProjectEvent.GET_ALL_PROJECTS);
   }
-  onCreateProject(){
+  onCreateProject() {
     this.projectEventPublisher.publishProjectEvent(ProjectEvent.CREATE_PROJECT_FORM);
   }
 

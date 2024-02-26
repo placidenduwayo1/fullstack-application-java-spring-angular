@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@CrossOrigin(value = "*")
 @RestController
 public class ProjectController {
     private final ProjectInputService projectInputService;

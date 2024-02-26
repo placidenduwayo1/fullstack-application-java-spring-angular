@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { EmployeeEventPublisher } from '../../../../shared/events-publisher/events.publisher';
 import { Employee } from '../../../../shared/models/employee/employee.model';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { EmployeeEvent } from 'src/app/shared/models/events.model';
 import { EmployeeService } from 'src/app/shared/services/service-REST/employees.service';
 
@@ -12,11 +12,16 @@ import { EmployeeService } from 'src/app/shared/services/service-REST/employees.
 })
 export class SubCompoEmployeePrinterComponent implements OnInit{
 
-  @Input () employeesList!: Array<Employee>
+  @Input () employeesList!: Array<Employee>;
+  @Output () nbEmployeesEventEmitter: EventEmitter<number> = new EventEmitter();
 
   constructor(private employeeService: EmployeeService,
    private employeeEventPublisher: EmployeeEventPublisher,
    private router: Router){}
+
+   onPrintNumberOfEmployeesEventEmitter(nbEmployees: number) {
+    this.nbEmployeesEventEmitter.emit(nbEmployees);
+   }
 
   ngOnInit(): void {
     this.employeeEventPublisher.employeeEnventObservable.subscribe((employeeEvent: EmployeeEvent)=>{
@@ -32,7 +37,7 @@ export class SubCompoEmployeePrinterComponent implements OnInit{
           console.log(employeeEvent);
           break;
       }
-    })
+    });
   }
 
 

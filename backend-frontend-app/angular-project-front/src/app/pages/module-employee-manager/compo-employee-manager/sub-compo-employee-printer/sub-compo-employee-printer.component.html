@@ -1,4 +1,6 @@
 <div class="container">
+  <button class="btn btn-outline-primary mt-2" *ngIf="employeesList" 
+  (click)="onPrintNumberOfEmployeesEventEmitter(employeesList.length)">nb employees</button>
 
   <p-table
   [value]="employeesList"

@@ -7,13 +7,10 @@
       <form [formGroup]="projectForm" (ngSubmit)="onSaveProjectForm(); projectForm.reset()">
         <label for="projectName">project name</label>
         <input type="text" class="form-control" formControlName="projectName"
-        [ngClass]="{'is-invalid': projectForm.controls['projectName'].touched && projectForm.controls['projectName'].invalid}">
-
+        [ngClass]="{'is-invalid': projectForm.controls['projectName'].touched && projectForm.controls['projectName'].invalid}" maxlength="10">
 
         <div class="invalid-feedback">
-          <span *ngIf="projectForm.controls['projectName'].errors?.['required']"
-            >required</span
-          >
+          <span *ngIf="projectForm.controls['projectName'].errors?.['required']">required</span>
         </div>
 
         <label for="description"> description</label>

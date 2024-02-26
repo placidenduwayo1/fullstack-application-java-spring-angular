@@ -2,7 +2,7 @@ import { AddressEventPublisher } from '../../../../shared/events-publisher/event
 import {  Router } from '@angular/router';
 import { AddressService } from '../../../../shared/services/service-REST/addresses.service';
 import { Address } from '../../../../shared/models/address/address.model';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AddressEvent } from 'src/app/shared/models/events.model';
 
 @Component({
@@ -12,6 +12,7 @@ import { AddressEvent } from 'src/app/shared/models/events.model';
 })
 export class SubCompoAddressPrinterComponent implements OnInit{
   @Input() addressesList!: Address[];
+  @Output () nbrOfAddressesEmitter: EventEmitter<number> = new EventEmitter();
 
   constructor(
     private addressService: AddressService,
@@ -29,6 +30,10 @@ export class SubCompoAddressPrinterComponent implements OnInit{
           break;
       }
     })
+  }
+
+  printNbrAddressesEventEmitter(nbAddresses: number){
+    this.nbrOfAddressesEmitter.emit(nbAddresses);
   }
 
 

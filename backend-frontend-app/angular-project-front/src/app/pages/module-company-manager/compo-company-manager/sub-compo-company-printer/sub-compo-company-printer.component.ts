@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { CompanyEventPublisher } from '../../../../shared/events-publisher/events.publisher';
 import { Company } from '../../../../shared/models/company/company.model';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CompanyEvent } from 'src/app/shared/models/events.model';
 import { CompanyService } from 'src/app/shared/services/service-REST/companies.service';
 
@@ -17,6 +17,7 @@ export class SubCompoCompanyPrinterComponent implements OnInit {
     private router : Router) { }
 
   @Input () companies!: Array<Company>;
+  @Output () nbrOfCompaniesEventEmitter : EventEmitter<number> = new EventEmitter();
 
   ngOnInit(): void {
     this.companyEventPublisher.companyEventObservable.subscribe((companyEvent: CompanyEvent)=>{
@@ -31,6 +32,10 @@ export class SubCompoCompanyPrinterComponent implements OnInit {
           break;
       }
     })
+  }
+
+  printNumberOfCompaniesEventEmitter(nb: number){
+    this.nbrOfCompaniesEventEmitter.emit(nb);
   }
 
   idToUpdate!: string;

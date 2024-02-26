@@ -9,6 +9,7 @@ import { SubCompoCompanyCreateComponent } from './compo-company-manager/sub-comp
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SubCompoCompanyUpdateComponent } from './compo-company-manager/sub-compo-company-update/sub-compo-company-update.component';
 import { SubCompoPrintProjectsForCompanyComponent } from './compo-company-manager/sub-compo-print-projects-for-company/sub-compo-print-projects-for-company.component';
+import { ButtonModule } from 'primeng/button';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { SubCompoPrintProjectsForCompanyComponent } from './compo-company-manage
     ModuleCompanyManagerRoutingModule,
     TableModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ButtonModule
   ]
 })
 export class ModuleCompanyManagerModule { }

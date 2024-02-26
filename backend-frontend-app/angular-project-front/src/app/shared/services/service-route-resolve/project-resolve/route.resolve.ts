@@ -1,21 +1,11 @@
-import { Injectable } from "@angular/core";
-import { Resolve, ActivatedRouteSnapshot } from "@angular/router";
-import { Observable } from "rxjs";
+import { inject } from "@angular/core";
+import { ActivatedRouteSnapshot, ResolveFn } from "@angular/router";
 import { Project } from "src/app/shared/models/project/project.model";
 import { ProjectService } from "../../service-REST/projects.service";
 
-@Injectable({providedIn:'root'})
-export class GetAllProjectsResolve implements Resolve<Array<Project>> {
-  constructor(private projectService: ProjectService){}
-  resolve(): Observable<Project[]>  {
-    return this.projectService.getAllProjects();
-  }
+export const GetAllProjectsResolve : ResolveFn<Array<Project>> = ()=>{
+  return inject(ProjectService).getAllProjects();
 }
-
-@Injectable({providedIn:'root'})
-export class GetProjectByIDResolve implements Resolve<Project> {
-  constructor(private projectService: ProjectService){}
-  resolve(route: ActivatedRouteSnapshot): Observable<Project>{
-    return this.projectService.getProject(route.paramMap.get('projectID'));
-  }
+export const GetProjectByIDResolve: ResolveFn<Project> = (route: ActivatedRouteSnapshot) =>{
+  return inject(ProjectService).getProject(route.paramMap.get('projectID'));
 }

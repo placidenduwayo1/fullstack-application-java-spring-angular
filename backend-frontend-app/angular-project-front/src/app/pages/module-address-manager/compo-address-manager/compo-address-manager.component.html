@@ -1,9 +1,10 @@
 
 <header>
   <div class="container mt-2">
-    <button class="btn btn-outline-info" (click)="onPrintAddresses()">print addresses</button> &nbsp;
-    <button class="btn btn-outline-info" (click)="onCreateAddress()">create address</button>
+    <button class="btn btn-outline-info mt-2" (click)="onPrintAddresses()">print addresses</button>
+    <button class="btn btn-outline-info mt-2" (click)="onCreateAddress()">create address</button> &nbsp;
+    <span>{{nbAddresses}}</span>
   </div>
 </header>
 
-<app-sub-compo-address-printer [addressesList]="addressesList"></app-sub-compo-address-printer>
+<app-sub-compo-address-printer [addressesList]="addressesList" (nbrOfAddressesEmitter)="printAddresses($event)"></app-sub-compo-address-printer>

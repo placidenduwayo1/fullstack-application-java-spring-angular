@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(value = "*")
 public class EmployeeController {
     private final EmployeeInputService employeeInputService;
     private final AddressServiceProxy addressServiceProxy;

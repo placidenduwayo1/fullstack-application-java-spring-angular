@@ -1,4 +1,5 @@
 <div class="container">
+  <button class="btn btn-outline-primary mt-2" *ngIf="projects" (click)="printNumberOfProject(projects.length)">nbr projects</button>
   <p-table
     [value]="projects"
     responsiveLayout="scroll"
@@ -46,9 +47,9 @@
           </ul>
         </td>
         <td>
-          <button class="btn">
+          <button>
             <i
-              class="fa fa-pencil"
+            class="fa fa-pencil"
               style="color: mediumturquoise"
               (click)="onProjectUpdate(project)"
             ></i>

@@ -19,6 +19,11 @@ export class CompoCompanyManagerComponent implements OnInit {
   ) {}
 
   companies!: Array<Company>;
+  nbrCompanies!:  number;
+
+  printNbrCompanies($event: any){
+    this.nbrCompanies = $event;
+  }
 
   ngOnInit(): void {
     this.companyEventPublisher.companyEventObservable.subscribe(

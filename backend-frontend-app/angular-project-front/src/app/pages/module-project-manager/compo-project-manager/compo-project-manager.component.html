@@ -5,6 +5,6 @@
   &nbsp;
   <button class="btn btn-outline-info" (click)="onCreateProject()">
     Create a project
-  </button>
+  </button> {{nbrOfProjects}}
 </div>
-<app-sub-compo-project-printer [projects]="projects"></app-sub-compo-project-printer>
+<app-sub-compo-project-printer [projects]="projects" (eventEmiter)="printNumberOfProjects($event)"></app-sub-compo-project-printer>

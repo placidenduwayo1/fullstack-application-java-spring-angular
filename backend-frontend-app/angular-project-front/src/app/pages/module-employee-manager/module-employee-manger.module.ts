@@ -9,6 +9,7 @@ import { SubCompoEmployeePrinterComponent } from './compo-employee-manager/sub-c
 import { SubCompoEmployeeCreateComponent } from './compo-employee-manager/sub-compo-employee-create/sub-compo-employee-create.component';
 import { SubCompoEmployeeUpdateComponent } from './compo-employee-manager/sub-compo-employee-update/sub-compo-employee-update.component';
 import { SubCompoPrintProjectsAssignedtoEmployeeComponent } from './compo-employee-manager/sub-compo-print-projects-assignedto-employee/sub-compo-print-projects-assignedto-employee.component';
+import { ButtonModule } from 'primeng/button';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { SubCompoPrintProjectsAssignedtoEmployeeComponent } from './compo-employ
     CommonModule,
     ModuleEmployeeManagerRoutingModule,
     ReactiveFormsModule,
-    TableModule
+    TableModule,
+    ButtonModule
   ]
 
 })

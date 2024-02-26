@@ -9,6 +9,7 @@ import { CompoProjectManagerComponent } from './compo-project-manager/compo-proj
 import { SubCompoProjectPrinterComponent } from './compo-project-manager/sub-compo-project-printer/sub-compo-project-printer.component';
 import { SubCompoProjectCreateComponent } from './compo-project-manager/sub-compo-project-create/sub-compo-project-create.component';
 import { SubcompoProjectUpdateComponent } from './compo-project-manager/subcompo-project-update/subcompo-project-update.component';
+import { ButtonModule } from 'primeng/button';
 
 
 @NgModule({
