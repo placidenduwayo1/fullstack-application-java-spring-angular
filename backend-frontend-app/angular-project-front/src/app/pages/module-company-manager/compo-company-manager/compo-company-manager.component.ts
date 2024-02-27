@@ -21,7 +21,7 @@ export class CompoCompanyManagerComponent implements OnInit {
   companies!: Array<Company>;
   nbrCompanies!:  number;
 
-  printNbrCompanies($event: any){
+  printNbrCompanies($event: number){
     this.nbrCompanies = $event;
   }
 

@@ -20,7 +20,7 @@ export class CompoProjectManagerComponent implements OnInit {
   projects!: Array<Project>;
   nbrOfProjects!: number;
 
-  printNumberOfProjects($event: any) {
+  printNumberOfProjects($event: number) {
    console.log("nombre de projets------------ ", $event);
    this.nbrOfProjects = $event;
    }

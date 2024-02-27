@@ -21,7 +21,7 @@ export class CompoAddressPrinterComponent implements OnInit {
   addressesList!: Array<Address>;
   nbAddresses!:number;
 
-  printAddresses($event: any){
+  printAddresses($event: number){
     console.log("nbr of addresses ------------------ ", $event);
     this.nbAddresses = $event;
   }
