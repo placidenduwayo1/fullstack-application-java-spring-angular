@@ -1,7 +1,7 @@
 import { Address } from '../../models/address/address.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable, throwError } from 'rxjs';
+import { catchError, map, Observable, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({ providedIn: 'root' })
@@ -16,9 +16,11 @@ export class AddressService {
   addressesServer: string = environment.gatewayService+'/clean-archi-bs-ms-address';
 
   getAllAddresses(): Observable<Array<Address>> {
-    return this.httplient
-      .get<Array<Address>>(this.addressesServer + '/addresses')
-      .pipe(catchError(this.handleError));
+    return this.httplient.get<Array<Address>>(this.addressesServer + '/addresses').pipe(
+      map(addressesList => [...addressesList].sort((a,b)=>b.pb-a.pb)),//afficher le tableau trié par ordre décroissant des cp
+      map((sortedAddresses =>sortedAddresses.filter(address => address.pb!==10000))),
+      catchError(this.handleError)
+    )
   }
 
   createAddress(address: Address): Observable<Address> {

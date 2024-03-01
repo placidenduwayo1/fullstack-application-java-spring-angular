@@ -37,3 +37,5 @@
 £clean-archi-business-service-employee/src/main/java/fr/natan/cleanarchitectureemployeesservice/infrastructure/ports/input/fallback/AddressServiceProxyFallback.java,6/e/6ea89b439e3596e9c3895811e6c60d3ae7b342bd
 `
 0clean-archi-business-service-employee/Dockerfile,a/f/afedf9309da763e6b3c54acb55de7db3da1382ec
+ª
+zclean-archi-business-service-employee/src/main/java/fr/natan/cleanarchitectureemployeesservice/domain/entity/Employee.java,8/2/82f7f4b142c1611735967896d5bd4e8aa9f3479a

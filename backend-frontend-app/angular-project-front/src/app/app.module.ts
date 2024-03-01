@@ -17,6 +17,7 @@ import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/lega
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatLegacyListModule as MatListModule } from '@angular/material/legacy-list';
+import { httpInterceptorProvider } from './shared/services/request-auth/interceptor';
 
 @NgModule({
   declarations: [AppComponent, BaseMenuComponent],
@@ -37,6 +38,7 @@ import { MatLegacyListModule as MatListModule } from '@angular/material/legacy-l
     ModuleCompanyManagerModule,
     ModuleProjectManagerModule,
   ],
+  providers: [httpInterceptorProvider],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

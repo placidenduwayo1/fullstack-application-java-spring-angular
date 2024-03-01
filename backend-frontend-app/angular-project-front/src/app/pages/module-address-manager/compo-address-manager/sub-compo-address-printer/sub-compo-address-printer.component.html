@@ -12,7 +12,7 @@ styleClass="p-datatable-striped"
 [showCurrentPageReport]="true"
 currentPageReportTemplate="{first} - {last} of {totalRecords} entries"
 [rowsPerPageOptions]="[10, 20, 30]"
-class="p-3"
+
 >
 <ng-template pTemplate="body" let-address>
   <tr>
@@ -45,7 +45,7 @@ class="p-3"
         class="fa fa-search"
         style="color: mediumturquoise"
         (click)="onPrintEmployeesLivigOnThisAddress(address.addressID)"
-      > employees </i>
+      >employees </i>
       </button>
     </td>
   </tr>

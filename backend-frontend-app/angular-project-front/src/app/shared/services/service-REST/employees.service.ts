@@ -1,4 +1,4 @@
-import { catchError, Observable } from 'rxjs';
+import { catchError, map, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { throwError } from 'rxjs';
@@ -21,7 +21,9 @@ export class EmployeeService {
   getAllEmployees(): Observable<Array<Employee>> {
     return this.httpclient
       .get<Array<Employee>>(this.dbServer + '/employees')
-      .pipe(catchError(this.handleError));
+      .pipe(
+        catchError(this.handleError)
+        );
   }
 
   createEmployee(employee: Employee): Observable<Employee> {

@@ -26,7 +26,6 @@ export class SubCompoAddressPrinterComponent implements OnInit{
       switch(addressEvent) {
         case AddressEvent.EMPLOYEES_AT_ADDRESS:
           this.router.navigateByUrl('employees-at-address/'+this.addressEmployeesRelated);
-          console.log(addressEvent);
           break;
       }
     })
