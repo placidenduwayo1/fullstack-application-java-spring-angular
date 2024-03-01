@@ -9,7 +9,7 @@ import { GetAllEmployeesResolve, GetEmployeeByIDResolve } from 'src/app/shared/s
 
 const routes: Routes = [
   {
-    path: 'employees-management',
+    path: '',
     component: CompoEmployeeManagerComponent,
     resolve: {
       getAllEmployeesResolve: GetAllEmployeesResolve,

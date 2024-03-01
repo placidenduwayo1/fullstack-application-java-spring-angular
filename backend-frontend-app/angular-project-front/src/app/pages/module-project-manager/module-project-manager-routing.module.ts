@@ -7,7 +7,7 @@ import { GetAllProjectsResolve, GetProjectByIDResolve } from 'src/app/shared/ser
 
 const routes: Routes = [
   {
-    path:'projects-management',
+    path:'',
     component: CompoProjectManagerComponent,
     resolve:{
       getAllProjectsResolve: GetAllProjectsResolve

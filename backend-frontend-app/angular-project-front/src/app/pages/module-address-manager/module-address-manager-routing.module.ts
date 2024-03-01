@@ -9,7 +9,7 @@ import { GetAllAddressesResolve } from 'src/app/shared/services/service-route-re
 
 const routes: Routes = [
   {
-    path :"addresses-management", component: CompoAddressManagerComponent,
+    path :"", component: CompoAddressManagerComponent,
     resolve:{
       getAllAddressesResolve: GetAllAddressesResolve
     }
@@ -40,3 +40,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class ModuleAddressManagerRoutingModule { }
+

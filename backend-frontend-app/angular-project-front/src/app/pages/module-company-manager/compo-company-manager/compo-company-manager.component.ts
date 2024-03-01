@@ -53,6 +53,6 @@ export class CompoCompanyManagerComponent implements OnInit {
   }
 
   onCreateCompany() {
-    this.router.navigate(['/company-create']);
+    this.router.navigate(['companies-management/company-create']);
   }
 }

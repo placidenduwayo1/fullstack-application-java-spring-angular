@@ -29,11 +29,11 @@ export class SubCompoEmployeePrinterComponent implements OnInit{
       switch(employeeEvent) {
 
         case EmployeeEvent.UPDATE_EMPLOYEE_FORM:
-          this.router.navigateByUrl('/employee-form-update/'+this.idToUpdate);
+          this.router.navigateByUrl('employees-management/employee-form-update/'+this.idToUpdate);
           console.log(employeeEvent)
           break;
         case EmployeeEvent.PROJECTS_ASSIGNEDTO_EMPLOYEE:
-          this.router.navigateByUrl('/projects-assignedto-employees/'+this.employeeIDProjectsRelated);
+          this.router.navigateByUrl('employees-management/projects-assignedto-employees/'+this.employeeIDProjectsRelated);
           console.log(employeeEvent);
           break;
       }

@@ -9,7 +9,7 @@ import { GetAllCompaniesResolve } from 'src/app/shared/services/service-route-re
 
 const routes: Routes = [
   {
-    path:'companies-management',
+    path:'',
     component: CompoCompanyManagerComponent,
     resolve:{
       getAllCompaniesResolve: GetAllCompaniesResolve

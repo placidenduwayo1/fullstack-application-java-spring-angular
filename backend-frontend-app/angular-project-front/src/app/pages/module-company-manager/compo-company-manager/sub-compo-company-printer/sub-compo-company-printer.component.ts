@@ -23,11 +23,11 @@ export class SubCompoCompanyPrinterComponent implements OnInit {
     this.companyEventPublisher.companyEventObservable.subscribe((companyEvent: CompanyEvent)=>{
       switch(companyEvent) {
         case CompanyEvent.UPDATE_COMPANY_FORM:
-          this.router.navigateByUrl('company-update/'+this.idToUpdate);
+          this.router.navigateByUrl('companies-management/company-update/'+this.idToUpdate);
           console.log(companyEvent);
           break;
         case CompanyEvent.PROJECTS_ASSIGNEDTO_COMPANY:
-          this.router.navigateByUrl('projects-assignedto-company/'+this.companyIDProjectsRelated);
+          this.router.navigateByUrl('companies-management/projects-assignedto-company/'+this.companyIDProjectsRelated);
           console.log(companyEvent);
           break;
       }

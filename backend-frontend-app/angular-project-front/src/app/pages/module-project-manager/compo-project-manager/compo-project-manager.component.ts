@@ -36,7 +36,7 @@ export class CompoProjectManagerComponent implements OnInit {
           console.log(projectEvent);
           break;
         case ProjectEvent.CREATE_PROJECT_FORM:
-          this.router.navigateByUrl('/project-create')
+          this.router.navigateByUrl('projects-management/project-create')
           break;
         case ProjectEvent.REFRESH:
           this.projectService.getAllProjects().subscribe((data: Array<Project>) => {

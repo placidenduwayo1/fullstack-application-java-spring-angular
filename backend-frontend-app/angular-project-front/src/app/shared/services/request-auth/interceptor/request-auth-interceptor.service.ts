@@ -9,9 +9,11 @@ export class RequestAuthInterceptor {
     constructor(private authService: AuthService){}
    
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        const headers = new HttpHeaders().append('Authorization',`Bearer ${this.authService.getToken()}`);
+        const headers = new HttpHeaders()
+        .append('Authorization',`Bearer ${this.authService.getToken()}`);
+      
         const modifiedRequest = req.clone({headers: headers});
+        
         return next.handle(modifiedRequest);
     }
-    
 }
