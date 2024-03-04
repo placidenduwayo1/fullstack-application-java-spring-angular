@@ -1,10 +1,10 @@
 import { HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { AuthService } from "../svc-auth/auth.service";
+import { AuthService } from "../auth-service/auth.service";
 
 @Injectable()
-export class RequestAuthInterceptor {
+export class RequestAuthInterceptor implements HttpInterceptor{
 
     constructor(private authService: AuthService){}
    
@@ -17,3 +17,4 @@ export class RequestAuthInterceptor {
         return next.handle(modifiedRequest);
     }
 }
+

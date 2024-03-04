@@ -6,6 +6,7 @@ import { CompoCompanyManagerComponent } from './compo-company-manager/compo-comp
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { GetAllCompaniesResolve } from 'src/app/shared/services/service-route-resolve/company-resolve/company.route.resolve';
+import { authGuardService } from 'src/app/core/auth-guard/auth-guard-service.guard';
 
 const routes: Routes = [
   {
@@ -13,22 +14,23 @@ const routes: Routes = [
     component: CompoCompanyManagerComponent,
     resolve:{
       getAllCompaniesResolve: GetAllCompaniesResolve
-    }
+    },
+    canActivate: [authGuardService],
   },
   {
     path:'company-create',
-    component: SubCompoCompanyCreateComponent
+    component: SubCompoCompanyCreateComponent, canActivate: [authGuardService],
   },
   {
     path:'company-update/:companyID',
-    component: SubCompoCompanyUpdateComponent,
+    component: SubCompoCompanyUpdateComponent, canActivate: [authGuardService],
     resolve:{
       getCompanyByIDResolve: GetCompanyByIDResolve
     }
   },
   {
     path: 'projects-assignedto-company/:companyID',
-    component: SubCompoPrintProjectsForCompanyComponent,
+    component: SubCompoPrintProjectsForCompanyComponent,canActivate: [authGuardService],
     resolve:{
       getProjectsAssignedToCompanyResolve: GetProjectsAssignedToCompanyResolve
     }

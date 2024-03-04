@@ -1,0 +1,35 @@
+<div class=" card container mt-4" style="width: 500px; padding: 1em;">
+    <h4>Authentication</h4>
+    
+    <form [formGroup]="loginForm">
+        <label>login</label>
+        <input type="text" class="form-control" formControlName="login" 
+        [ngClass]="{'is-invalid':
+        loginForm.get('login')?.touched && loginForm.get('login')?.invalid}">
+
+        <div class="invalid-feedback">
+            <span *ngIf=
+            "loginForm.controls['login'].errors?.['required']">required</span>
+        </div>
+
+        <label>password</label>
+        <input type="password" class="form-control" formControlName="pwd"
+        [ngClass]="{'is-invalid':
+        loginForm.get('pwd')?.touched && loginForm.get('pwd')?.invalid}">
+
+        <div class="invalid-feedback">
+            <span *ngIf=
+            "loginForm.controls['pwd'].errors?.['required']">required</span>
+        </div>
+
+        <div class="text-center mt-2">
+            <button type="submit" class="btn btn-outline-primary" 
+            [disabled]="loginForm.invalid" (click)="onLogin()">
+              connexion
+            </button>
+          </div>
+    </form>
+
+</div>
+
+
