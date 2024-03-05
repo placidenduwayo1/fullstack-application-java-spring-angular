@@ -10,13 +10,11 @@ export const authGuardService : CanActivateChildFn = () => {
   
   const token = authService.getToken();
   
-  if(token){
-    return true;
+  if(!authService.isLoggedIn()){
+    router.navigateByUrl('/login')
   }
-  else{
-    alert("access denied because not authenticated");
-    router.navigateByUrl('')
-    return false;
-  }
+   
+    return authService.isLoggedIn();
+  
 }
 

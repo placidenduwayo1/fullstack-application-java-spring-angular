@@ -2,27 +2,37 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-   {
-    path: 'accueil', 
+  {
+    path: '', redirectTo: '/login', pathMatch:'full'
+  },
+  {
+    path: 'accueil',
     loadChildren: () => import('./pages/module-accueil/module-accueil.module')
       .then(module => module.ModuleAccueilModule)
   },
   {
     path: 'addresses-management',
-    loadChildren: () => import('./pages/module-address-manager/module-address-manager.module')
-      .then(m => m.ModuleAddressManagerModule)
+    loadChildren:
+      () => import('./pages/module-address-manager/module-address-manager.module')
+        .then(m => m.ModuleAddressManagerModule)
   },
   {
-    path: 'companies-management', loadChildren: () => import('./pages/module-company-manager/module-company-manager.module')
-      .then(m => m.ModuleCompanyManagerModule)
+    path: 'companies-management',
+    loadChildren:
+      () => import('./pages/module-company-manager/module-company-manager.module')
+        .then(m => m.ModuleCompanyManagerModule)
   },
   {
-    path: 'employees-management', loadChildren: () => import('./pages/module-employee-manager/module-employee-manger.module')
-      .then(m => m.ModuleEmployeeManagerModule)
+    path: 'employees-management',
+    loadChildren:
+      () => import('./pages/module-employee-manager/module-employee-manger.module')
+        .then(m => m.ModuleEmployeeManagerModule)
   },
   {
-    path: 'projects-management', loadChildren: () => import('./pages/module-project-manager/module-project-manager.module')
-      .then(m => m.ModuleProjectManagerModule)
+    path: 'projects-management',
+    loadChildren:
+      () => import('./pages/module-project-manager/module-project-manager.module')
+        .then(m => m.ModuleProjectManagerModule)
   }
 ];
 
@@ -31,5 +41,6 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
 
 

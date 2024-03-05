@@ -20,30 +20,22 @@ export class LoginComponentComponent implements OnInit {
     this.loginForm = this.fb.group({
       login: ['', Validators.required],
       pwd: ['', Validators.required]
-    })
-  }
+    });
 
+    if(this.authService.isLoggedIn()){
+      this.router.navigate(["menu"]); //s'il est déjà loggé, même si il revient on login, du moment qu'il n'a pas cliqué sur logout, il reste connecté
+    }
+  }
   onLogin() {
-    const login: string = this.loginForm.value.login;
-    const pwd: string = this.loginForm.value.pwd;
-    
-    const loginP: string ='placide';
-    const pwdP='Placide';
-
-    console.log('login = ' + login + ' pwd= ' + pwd);
-    if (login !== loginP || pwd !== pwdP) {
-      alert(
-      `erreur d\'authentification:
-      login et pwd doivent être ${loginP} et ${pwdP}`
-      );
-      this.loginForm.reset();
-      this.router.navigateByUrl('');
-    }
-    else {
-      this.authService.login();
-      this.router.navigateByUrl("menu");
-    }
-
+    const login = this.loginForm.get('login')?.value;
+    const pwd = this.loginForm.get('pwd')?.value;
+    this.authService.login(login, pwd).subscribe(
+      (result)=>{
+        console.log('-----------------',result);
+        this.router.navigateByUrl('/menu');
+      }
+    );
   }
-
 }
+
+

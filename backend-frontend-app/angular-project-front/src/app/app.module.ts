@@ -14,6 +14,7 @@ import { MatLegacyListModule as MatListModule } from '@angular/material/legacy-l
 import { httpInterceptorProvider } from './core/interceptor';
 import { MenuModule } from './pages/menu/menu.module';
 import { LoginModule } from './core/login/login.module';
+import { PageNotFoundModule } from './core/page-not-found/page-not-found.module';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { LoginModule } from './core/login/login.module';
     MatIconModule,
     BrowserAnimationsModule,
     LoginModule,
-    MenuModule
+    MenuModule,
+    PageNotFoundModule
   ],
   providers: [httpInterceptorProvider],
   bootstrap: [AppComponent],
