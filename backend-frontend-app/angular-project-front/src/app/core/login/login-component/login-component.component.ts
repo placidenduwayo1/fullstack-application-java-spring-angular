@@ -26,7 +26,7 @@ export class LoginComponentComponent implements OnInit {
       même s'il revient on login, du moment qu'il n'a pas cliqué sur logout,
       il reste connecté*/
     if (this.authService.isLoggedIn()) {
-      this.router.navigate(["session/menu"]);
+      this.router.navigate(["session"]);
     }
   }
   onLogin() {
@@ -36,7 +36,7 @@ export class LoginComponentComponent implements OnInit {
       data => {
         if (data) {
           console.log('auth informations ----- ', data);
-          this.router.navigateByUrl('session/menu');
+          this.router.navigateByUrl('session');
         }
         else {
           //console.log(err);
