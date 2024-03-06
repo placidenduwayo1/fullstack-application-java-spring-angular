@@ -6,7 +6,6 @@ import { CompoEmployeeManagerComponent } from './compo-employee-manager/compo-em
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { GetAllEmployeesResolve, GetEmployeeByIDResolve } from 'src/app/shared/services/service-route-resolve/employee-resolve/employee.route.resolve';
-import { authGuardService } from 'src/app/core/auth-guard/auth-guard-service.guard';
 
 const routes: Routes = [
   {
@@ -14,8 +13,7 @@ const routes: Routes = [
     component: CompoEmployeeManagerComponent,
     resolve: {
       getAllEmployeesResolve: GetAllEmployeesResolve,
-    },
-    canActivate: [authGuardService]
+    }
   },
   {
     path: 'employee-form-create',
@@ -26,16 +24,14 @@ const routes: Routes = [
     component: SubCompoEmployeeUpdateComponent,
     resolve:{
       getEmployeeByIDResolve:GetEmployeeByIDResolve
-    },
-    canActivate: [authGuardService]
+    }
   },
   {
     path:'projects-assignedto-employees/:employeeID',
     component: SubCompoPrintProjectsAssignedtoEmployeeComponent,
     resolve:{
       getProjectsAssignedToEmployeeResolve: GetProjectsAssignedToEmployeeResolve
-    },
-    canActivate: [authGuardService]
+    }
   }
 ];
 

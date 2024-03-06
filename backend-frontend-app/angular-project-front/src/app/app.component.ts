@@ -8,10 +8,4 @@ import { AuthService } from './core/auth-service/auth.service';
 })
 export class AppComponent {
   title = 'angular training project front';
-
-  constructor(private authService: AuthService){}
-
-  show(){
-    return this.authService.isLoggedIn();
-  }
 }

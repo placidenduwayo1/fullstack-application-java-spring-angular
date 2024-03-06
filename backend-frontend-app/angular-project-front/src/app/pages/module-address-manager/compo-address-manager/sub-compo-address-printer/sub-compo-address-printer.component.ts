@@ -25,7 +25,7 @@ export class SubCompoAddressPrinterComponent implements OnInit{
     this.addressEventPublisher.addressEventObservable.subscribe((addressEvent: AddressEvent)=>{
       switch(addressEvent) {
         case AddressEvent.EMPLOYEES_AT_ADDRESS:
-          this.router.navigateByUrl('addresses-management/employees-at-address/'+this.addressEmployeesRelated);
+          this.router.navigateByUrl('session/addresses-management/employees-at-address/'+this.addressEmployeesRelated);
           break;
       }
     })
@@ -37,7 +37,7 @@ export class SubCompoAddressPrinterComponent implements OnInit{
 
 
   onAddressUpdate(address: Address) {
-    this.router.navigateByUrl('addresses-management/address-form-update/' + address.addressID);
+    this.router.navigateByUrl('session/addresses-management/address-form-update/' + address.addressID);
   }
 
   onAddressDelete(addressID: string) {

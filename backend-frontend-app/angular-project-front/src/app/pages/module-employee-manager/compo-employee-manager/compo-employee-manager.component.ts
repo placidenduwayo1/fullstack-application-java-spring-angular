@@ -47,7 +47,7 @@ export class CompoEmployeeManagerComponent implements OnInit {
 
           case EmployeeEvent.CREATE_EMPLOYEE_FORM:
             console.log(employeeEvent);
-            this.router.navigateByUrl("employees-management/employee-form-create")
+            this.router.navigateByUrl("session/employees-management/employee-form-create")
             break;
 
           case EmployeeEvent.REFRESH:

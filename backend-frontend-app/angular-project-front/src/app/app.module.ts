@@ -12,13 +12,13 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatLegacyListModule as MatListModule } from '@angular/material/legacy-list';
 import { httpInterceptorProvider } from './core/interceptor';
-import { MenuModule } from './pages/menu/menu.module';
 import { LoginModule } from './core/login/login.module';
-import { PageNotFoundModule } from './core/page-not-found/page-not-found.module';
+import { MyMenuModule } from './pages/menu/menu.module';
+import { AppSessionComponent } from './pages/app-session/app-session.component';
 
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, AppSessionComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -28,9 +28,7 @@ import { PageNotFoundModule } from './core/page-not-found/page-not-found.module'
     MatSidenavModule,
     MatIconModule,
     BrowserAnimationsModule,
-    LoginModule,
-    MenuModule,
-    PageNotFoundModule
+    LoginModule, MyMenuModule
   ],
   providers: [httpInterceptorProvider],
   bootstrap: [AppComponent],

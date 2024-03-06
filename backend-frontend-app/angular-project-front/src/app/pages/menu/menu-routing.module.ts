@@ -5,7 +5,7 @@ import { authGuardService } from 'src/app/core/auth-guard/auth-guard-service.gua
 
 const routes: Routes = [
   {
-    path:'menu', component: MenuComponent, canActivate: [authGuardService]
+    path:'session/menu', component: MenuComponent, canActivate: [authGuardService]
   }
 ];
 
@@ -13,4 +13,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class MenuRoutingModule { }
+export class MyMenuRoutingModule { }

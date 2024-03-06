@@ -24,7 +24,7 @@ export class SubCompoProjectPrinterComponent implements OnInit {
     this.projectEventPublisher.projectEventObservable.subscribe((projectEvent: ProjectEvent) => {
       switch (projectEvent) {
         case ProjectEvent.UPDATE_PROJECT_FORM:
-          this.router.navigateByUrl('projects-management/project-update/' + this.projectID);
+          this.router.navigateByUrl('session/projects-management/project-update/' + this.projectID);
           break;
       }
     });

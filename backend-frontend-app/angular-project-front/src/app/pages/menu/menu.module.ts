@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { MenuRoutingModule } from './menu-routing.module';
 import { MenuComponent } from './menu/menu.component';
-import { TabMenuModule } from 'primeng/tabmenu';
+import {MenubarModule} from 'primeng/menubar';
+import { MyMenuRoutingModule } from './menu-routing.module';
+
 
 
 @NgModule({
@@ -12,9 +12,9 @@ import { TabMenuModule } from 'primeng/tabmenu';
   ],
   imports: [
     CommonModule,
-    MenuRoutingModule,
-    TabMenuModule
+    MenubarModule,
+    MyMenuRoutingModule
   ],
   exports: [MenuComponent]
 })
-export class MenuModule { }
+export class MyMenuModule { }

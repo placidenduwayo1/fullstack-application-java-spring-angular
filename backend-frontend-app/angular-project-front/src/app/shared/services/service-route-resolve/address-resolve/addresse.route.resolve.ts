@@ -1,6 +1,5 @@
-import { Injectable, inject } from "@angular/core";
-import { ActivatedRouteSnapshot, Resolve, ResolveFn } from "@angular/router";
-import { Observable } from "rxjs";
+import { inject } from "@angular/core";
+import { ActivatedRouteSnapshot, ResolveFn } from "@angular/router";
 import { Address } from "src/app/shared/models/address/address.model";
 import { AddressService } from "../../service-REST/addresses.service";
 

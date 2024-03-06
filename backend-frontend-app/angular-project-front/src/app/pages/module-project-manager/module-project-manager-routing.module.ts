@@ -4,12 +4,11 @@ import { CompoProjectManagerComponent } from './compo-project-manager/compo-proj
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { GetAllProjectsResolve, GetProjectByIDResolve } from 'src/app/shared/services/service-route-resolve/project-resolve/route.resolve';
-import { authGuardService } from 'src/app/core/auth-guard/auth-guard-service.guard';
 
 const routes: Routes = [
   {
     path:'',
-    component: CompoProjectManagerComponent,canActivate: [authGuardService],
+    component: CompoProjectManagerComponent,
     resolve:{
       getAllProjectsResolve: GetAllProjectsResolve
     }
@@ -17,12 +16,10 @@ const routes: Routes = [
   {
     path:'project-create',
     component: SubCompoProjectCreateComponent,
-    canActivate: [authGuardService],
   },
   {
     path:'project-update/:projectID',
     component: SubcompoProjectUpdateComponent,
-    canActivate: [authGuardService],
     resolve:{
       getProjectByIDResolve:GetProjectByIDResolve
     }

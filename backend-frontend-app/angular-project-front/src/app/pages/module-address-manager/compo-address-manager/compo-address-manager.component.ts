@@ -41,7 +41,7 @@ export class CompoAddressPrinterComponent implements OnInit {
 
         case AddressEvent.CREATE_ADDRESS_FORM:
           console.log(addressEvent);
-          this.router.navigateByUrl("addresses-management/address-form-create");
+          this.router.navigateByUrl("session/addresses-management/address-form-create");
           break;
 
         case AddressEvent.REFRESH:

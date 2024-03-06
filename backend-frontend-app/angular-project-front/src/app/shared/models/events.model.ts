@@ -24,8 +24,6 @@ export enum AddressEvent {
 }
 
 
-
-
 export enum CompanyEvent {
   GET_ALL_COMPANIES = '[Company] GET ALL COMPANIES EVENT',
   CREATE_COMPANY_FORM = '[Company] CREATE COMPANY FORM EVENT',
